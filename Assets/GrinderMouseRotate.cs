@@ -26,7 +26,7 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
         // Calculate the center of the handle in screen space
         centerPoint = RectTransformUtility.WorldToScreenPoint(null, rectTransform.position);
         targetRotation = rectTransform.rotation; //Starts with the initial rotation
-        previousAngle = GetAngleFromPosition(centerPoint); // Initialize Previous angle
+        previousAngle = GetHandleAngle();
 
     }
 
@@ -34,6 +34,8 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
     {
         //adds interpolation to the mouse rotation
         rectTransform.rotation = Quaternion.Lerp(rectTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+
+        UpdateProgressBasedOnHandle();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -47,29 +49,49 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
         //Ensure the angle is wrapped between 0 - 360
         angle = NormalizeAngle(angle);
 
-        //calculate rotation
+        //calculate rotation of handle
         float rotationDelta = Mathf.DeltaAngle(previousAngle, angle);
         totalRotations += Mathf.Abs(rotationDelta) / 360f; //increments based on full rotations
 
-        //Update progress bar
-        progressbar.value = Mathf.Clamp01(totalRotations / requiredRotations);
-
-        // set the target rotation and change the previous angle
+        // set the target rotation
         targetRotation = Quaternion.Euler(0, 0, angle);
-        previousAngle = angle;
 
     }
 
-    private float GetAngleFromPosition(Vector2 position)
+    private void UpdateProgressBasedOnHandle()
     {
-        Vector2 direction = position - centerPoint;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90;
-        return NormalizeAngle(angle);
+        //Get the current angle of the handle
+        float currentAngle = GetHandleAngle();
+
+        //calculate the rotation delta (ensures smooth transitions across 0 and 360 degrees)
+        float rotationDelta = Mathf.DeltaAngle(previousAngle, currentAngle);
+
+
+        //Counts only if the handle is moving forward
+        if (Mathf.Abs(rotationDelta) > 0.1f)
+        {
+            //Convert the rotation delta into progress and add to the totalRotations
+            totalRotations += Mathf.Abs(rotationDelta) / 360f;
+
+            //Update the progress bar 
+            progressbar.value = Mathf.Clamp01(totalRotations / requiredRotations);
+
+        }
+
+        previousAngle = currentAngle;
     }
+
 
     private float NormalizeAngle(float angle)
     {
-        return (angle + 360f) % 360f; // Wraps angle to be 0 - 360
+        //normalise angle to the range pf 0 and 360
+        return (angle + 360f) % 360f;
+    }
+
+    private float GetHandleAngle()
+    {
+        //Get the current angle of the RectTransform in degrees
+        return NormalizeAngle(rectTransform.eulerAngles.z);
     }
 
 }
