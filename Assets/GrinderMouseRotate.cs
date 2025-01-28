@@ -11,6 +11,9 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
     [SerializeField] private float rotationSpeed = 5f;
     private Quaternion targetRotation;
 
+    [SerializeField] private GameObject grinderGameUI;
+    
+
     //progress of rotation
     [SerializeField] private Slider progressbar; //refers to the progressbar in the UI
     [SerializeField] private float requiredRotations = 3f; //max number of rotations needed until progress bar is full
@@ -27,6 +30,9 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
         centerPoint = RectTransformUtility.WorldToScreenPoint(null, rectTransform.position);
         targetRotation = rectTransform.rotation; //Starts with the initial rotation
         previousAngle = GetHandleAngle();
+        
+
+        
 
     }
 
@@ -36,7 +42,13 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
         rectTransform.rotation = Quaternion.Lerp(rectTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
         UpdateProgressBasedOnHandle();
-    }
+
+		if (progressbar.value == 1)
+		{
+            Invoke("checkProgressComplete", 2.0f);
+
+		}
+	}
 
     public void OnDrag(PointerEventData eventData)
     {
@@ -93,5 +105,11 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
         //Get the current angle of the RectTransform in degrees
         return NormalizeAngle(rectTransform.eulerAngles.z);
     }
+
+    private void checkProgressComplete()
+    {
+        grinderGameUI.SetActive(false);
+        
+	}
 
 }
