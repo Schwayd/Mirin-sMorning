@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class tampMechanic : MonoBehaviour
+public class tampMechanic : MonoBehaviour, IDragHandler
 {
     [SerializeField] private RectTransform tampObject;
     [SerializeField] private Slider progressBar;
@@ -15,7 +15,7 @@ public class tampMechanic : MonoBehaviour
     private float currentCompression = 0f;
     private bool isComplete = false;
 
-    public void OnMouseDrag(PointerEventData eventData)
+    public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("dragging");
         if (isComplete) return;
