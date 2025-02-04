@@ -427,14 +427,13 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1405973239}
+  m_Children: []
   m_Father: {fileID: 1943475335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.5692, y: -0.000030517}
-  m_SizeDelta: {x: 1232.799, y: 567.2821}
+  m_AnchoredPosition: {x: -0.000030518, y: 0}
+  m_SizeDelta: {x: 851.3885, y: 838.024}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &176570425
 MonoBehaviour:
@@ -449,14 +448,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.1724813, g: 0.6415094, b: 0.38072744, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 80ce8ada255af8d47be73235d376d0c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -871,7 +870,7 @@ MonoBehaviour:
   smoothSpeed: 300
   successThreshold: 0.9
   failureThreshold: 1.01
-  tampingUI: {fileID: 1413289615}
+  tampingUI: {fileID: 0}
 --- !u!61 &262744814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2388,8 +2387,9 @@ GameObject:
   - component: {fileID: 1080328474}
   - component: {fileID: 1080328473}
   - component: {fileID: 1080328472}
+  - component: {fileID: 1080328475}
   m_Layer: 5
-  m_Name: Tamp
+  m_Name: Portafilter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2412,8 +2412,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 486, y: -124}
-  m_SizeDelta: {x: 273.784, y: 35.388}
+  m_AnchoredPosition: {x: 744.19165, y: -97.066345}
+  m_SizeDelta: {x: 470.1671, y: 73.5206}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1080328472
 MonoBehaviour:
@@ -2427,6 +2427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63973ef56d5ab434ca84b2813bc9af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 712125370}
 --- !u!114 &1080328473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2465,6 +2466,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1080328470}
   m_CullTransparentMesh: 1
+--- !u!225 &1080328475
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080328470}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1129939775
 GameObject:
   m_ObjectHideFlags: 0
@@ -2772,6 +2785,7 @@ GameObject:
   - component: {fileID: 1405973239}
   - component: {fileID: 1405973241}
   - component: {fileID: 1405973240}
+  - component: {fileID: 1405973242}
   m_Layer: 5
   m_Name: TampConnector
   m_TagString: Untagged
@@ -2786,16 +2800,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405973238}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 176570424}
+  m_Father: {fileID: 1943475335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000019073, y: 71}
+  m_AnchoredPosition: {x: 85.046, y: -28.194}
   m_SizeDelta: {x: 170.0923, y: 56.3871}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1405973240
@@ -2836,6 +2850,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405973238}
   m_CullTransparentMesh: 1
+--- !u!114 &1405973242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405973238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8133e8406573d4ea11286800f1709b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1413289615
 GameObject:
   m_ObjectHideFlags: 0
@@ -3073,7 +3099,7 @@ GameObject:
   - component: {fileID: 1497632143}
   - component: {fileID: 1497632142}
   m_Layer: 5
-  m_Name: Tamp base
+  m_Name: Portafilter base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3095,8 +3121,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -68.446, y: 12.670105}
-  m_SizeDelta: {x: 136.89, y: 60.728}
+  m_AnchoredPosition: {x: -117.54, y: 32.6898}
+  m_SizeDelta: {x: 235.08, y: 100.7673}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1497632142
 MonoBehaviour:
@@ -3503,6 +3529,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 176570424}
+  - {fileID: 1405973239}
   - {fileID: 1080328471}
   m_Father: {fileID: 712125371}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
