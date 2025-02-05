@@ -29,14 +29,15 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
         flowPlayer = GetComponent<ArticyFlowPlayer>();
     }
     
-    public void StartDialogue(string aDialogueLine, string aSpeaker)
+    public void StartDialogue(IArticyObject aObject)
     {
         //begins the dialogue
         DialogueActive = true;
-        dialogueWidget.SetActive(DialogueActive);       
+        dialogueWidget.SetActive(DialogueActive);
+        //method sets the diaogue widget active and flow player object begins
+        flowPlayer.StartOn = aObject;
         
-        dialogueText.text = aDialogueLine;
-        dialogueSpeaker.text = aSpeaker;
+        
     }
 
     public void CloseDialogueBox()

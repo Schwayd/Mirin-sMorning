@@ -1,17 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Articy.Unity;
 
 
 public class PlayerController : MonoBehaviour
 {
-    private string dialogue;
-    private string speaker;
+  
 
-    private float speed = 15f;
+    [SerializeField] private float speed = 4f;
     private bool isNearNPC = false;
 
     private Rigidbody playerRB;
     private DialogueManager dialogueManager;
+    private ArticyObject availableDialogue;
  
     void Start()
     {
@@ -43,9 +44,9 @@ public class PlayerController : MonoBehaviour
     void PlayerInteraction()
     {
         // Key option to start dialogue when near NPC
-        if (Input.GetKeyDown(KeyCode.Space) && isNearNPC)
+        if (Input.GetKeyDown(KeyCode.Space) && availableDialogue)
         {
-            dialogueManager.StartDialogue(dialogue, speaker);
+            dialogueManager.StartDialogue(availableDialogue);
         }
 
         // Key option to abort dialogue
@@ -70,15 +71,15 @@ public class PlayerController : MonoBehaviour
     // Trigger Enter/Exit used to determine if interaction with NPC is possible
     void OnTriggerEnter(Collider aOther)
     {
-        isNearNPC = true;
+       
+        availableDialogue = aOther.GetComponent<ArticyReference>().reference.GetObject();
 
         // get dialogue line and speaker name from triggered object
-        dialogue = aOther.GetComponent<DialogueHolder>().dialogueLine;
-        speaker = aOther.GetComponent<DialogueHolder>().speakerName;
+        
     }
 
     void OnTriggerExit(Collider aOther)
     {
-        isNearNPC = false;
+        
     }
 }
