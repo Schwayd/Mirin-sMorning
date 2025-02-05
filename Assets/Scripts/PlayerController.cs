@@ -71,15 +71,27 @@ public class PlayerController : MonoBehaviour
     // Trigger Enter/Exit used to determine if interaction with NPC is possible
     void OnTriggerEnter(Collider aOther)
     {
-       
+       //fetches the articyreference
         availableDialogue = aOther.GetComponent<ArticyReference>().reference.GetObject();
 
-        // get dialogue line and speaker name from triggered object
+        var articyReferenceComp = aOther.GetComponent<ArticyReference>(); //reference to articy componenet
+
+        //checks to see if there is dialogue attached to the object
+        if (articyReferenceComp)
+        {
+            availableDialogue = articyReferenceComp.reference.GetObject();
+        }
+       
         
     }
 
     void OnTriggerExit(Collider aOther)
     {
-        
+        //clears the articy reference when you leave the trigger
+        if (aOther.GetComponent<ArticyReference>() != null)
+        {
+            availableDialogue = null;
+
+        }
     }
 }

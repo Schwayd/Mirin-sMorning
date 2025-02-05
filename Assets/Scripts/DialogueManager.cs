@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Articy.Unity;
 using Articy.Unity.Interfaces;
+using Articy.UnityImporterTutorial;
 
 
 public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
@@ -51,12 +52,25 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
     public void OnFlowPlayerPaused(IFlowObject aObject)
     {
         dialogueText.text = string.Empty;
+        dialogueSpeaker.text = string.Empty;
 
         var objectWithText = aObject as IObjectWithLocalizableText;
         if(objectWithText != null)
         {
             dialogueText.text = objectWithText.Text;
         }
+
+        //fetch the speaker property and cast to objectwithspeaker
+        var objectWithSpeaker = aObject as IObjectWithSpeaker;
+        if (objectWithSpeaker != null)
+        {
+            var speakerEntity = objectWithSpeaker.Speaker as Entity;
+            if (speakerEntity != null)
+            {
+                dialogueSpeaker.text = speakerEntity.DisplayName;
+            }
+        }
+
     }
 
     public void OnBranchesUpdated(IList<Branch> aBranches)
