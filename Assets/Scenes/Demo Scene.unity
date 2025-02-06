@@ -812,7 +812,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1002744590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,6 +948,8 @@ MonoBehaviour:
   dialogueWidget: {fileID: 1715526081}
   dialogueText: {fileID: 1428612378}
   dialogueSpeaker: {fileID: 1052361337}
+  dialogueButton: {fileID: 1002744591}
+  endDialogueButton: {fileID: 1734413909}
 --- !u!4 &1010077865
 Transform:
   m_ObjectHideFlags: 0
@@ -1696,7 +1698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1734413908
 MonoBehaviour:
   m_ObjectHideFlags: 0
