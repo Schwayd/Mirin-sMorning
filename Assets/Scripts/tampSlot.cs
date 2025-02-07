@@ -12,10 +12,13 @@ public class tampSlot : MonoBehaviour, IDropHandler
     private GameObject portaSide;
     [SerializeField]
     private GameObject portaFront;
+    [SerializeField]
+    private GameObject BrewButton;
 
     void Start()
     {
         portaFront.SetActive(false);
+        BrewButton.SetActive(false);
     }
     public void OnDrop(PointerEventData eventData)
     {
@@ -26,6 +29,8 @@ public class tampSlot : MonoBehaviour, IDropHandler
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
             portaFront.SetActive(true);
             portaSide.SetActive(false);
+            BrewButton.SetActive(true);
+
         }
     }
 
