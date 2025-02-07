@@ -8,7 +8,15 @@ using UnityEngine.UI;
 public class tampSlot : MonoBehaviour, IDropHandler
 {
     
+    [SerializeField]
+    private GameObject portaSide;
+    [SerializeField]
+    private GameObject portaFront;
 
+    void Start()
+    {
+        portaFront.SetActive(false);
+    }
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("OnDrop");
@@ -16,7 +24,10 @@ public class tampSlot : MonoBehaviour, IDropHandler
         {
             //gets the object attached to the pointer dragging and snaps to the location of the tampConnecter eobject
             eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().anchoredPosition;
-            
+            portaFront.SetActive(true);
+            portaSide.SetActive(false);
         }
     }
+
+   
 }
