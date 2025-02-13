@@ -10,4 +10,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void debugMenu()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
