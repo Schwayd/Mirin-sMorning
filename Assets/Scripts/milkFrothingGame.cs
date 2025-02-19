@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -10,11 +11,20 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     [SerializeField] private RectTransform jug; //jug will be draggable
     [SerializeField] private GameObject targetSlider; //The slider that will move randomly
     [SerializeField] private Image milkVisualCue; //Image that changes color as a warning
+    [SerializeField] private GameObject FrothGameUI; //UI for the entire froth game
 
     [Header("Settings")]
     [SerializeField] private float badMilkThreshold = 50f; //Max distance allowed before the milk will start to spoil
     [SerializeField] private float warningThreshold = 30f; //Distance where the cue starts to tell player they are close to spoiling
     [SerializeField] private float targetMoveSpeed = 0.5f; //Max speed that the slider can move
+
+
+    [Header("Game End Elements")]
+    [SerializeField] private GameObject successImage; //image that is shown when you succeed
+    [SerializeField] private Sprite SpoiledMilkSprite; //Sprite that is shown when you fail and spoil the milk
+    [SerializeField] private Image milkImage; //Ui image component for milk
+
+    private bool gameEnded = false;
 
     private float jugStartY;
     private bool isDragging = false;
@@ -31,6 +41,8 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
         //Resets the visual cue 
         milkVisualCue.color = Color.white;
+
+        StartCoroutine(EndGameAfterTime(8f));
     }
 
     void Update()
@@ -59,7 +71,7 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     private IEnumerator MoveSliderRandomly()
     {
-        while (true)
+        while (true & gameEnded == false)
         {
             //generates a new random Y position for the slider on the right
             float targetY = Random.Range(-100f, 100f); //this is what can be adjusted to fit the UI
@@ -111,6 +123,32 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
             milkVisualCue.color = Color.green;
         }
 
+
+    }
+
+    private IEnumerator EndGameAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+
+        if (gameEnded) yield break; //prevents the game ending multiple time
+
+        if (milkVisualCue.color == Color.red) //checks the variable to see if milk is spoiled based on its colour
+        {
+            Debug.Log("Game Over: Milk is spoilt!");
+            milkImage.sprite = SpoiledMilkSprite; //changes the current sprite to the spoilt milk sprite
+            yield return new WaitForSeconds(1f);
+            FrothGameUI.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Success! The milk has frothed well");
+            successImage.SetActive(true); //Shows the success UI if you frothed it correctly
+            yield return new WaitForSeconds(1f);
+            FrothGameUI.SetActive(false);
+
+        }
+
+        gameEnded = true;
 
     }
 
