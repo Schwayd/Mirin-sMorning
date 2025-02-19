@@ -8,7 +8,7 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 {
     [Header("UI Elements")]
     [SerializeField] private RectTransform jug; //jug will be draggable
-    [SerializeField] private Slider targetSlider; //The slider that will move randomly
+    [SerializeField] private GameObject targetSlider; //The slider that will move randomly
     [SerializeField] private Image milkVisualCue; //Image that changes color as a warning
 
     [Header("Settings")]
@@ -21,11 +21,13 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     void Start()
     {
-        //Remembers the Y postiion of the jug initially
-        jugStartY = jug.anchoredPosition.y;
-
         //Start the slider movement
         StartCoroutine(MoveSliderRandomly());
+
+        //Set's the initial jug position to the targetslider position
+        Vector2 initialPosition = jug.anchoredPosition;
+        initialPosition.y = targetSlider.GetComponent<RectTransform>().anchoredPosition.y;
+        jug.anchoredPosition = initialPosition;
 
         //Resets the visual cue 
         milkVisualCue.color = Color.white;
