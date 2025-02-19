@@ -1002,11 +1002,11 @@ MonoBehaviour:
   tampObject: {fileID: 262744810}
   progressBar: {fileID: 1129939777}
   maxCompression: -90
-  resistanceFactor: 0.05
-  smoothSpeed: 300
+  resistanceFactor: 0.005
+  smoothSpeed: 600
   successThreshold: 0.9
   failureThreshold: 1.01
-  tampingUI: {fileID: 0}
+  tampingUI: {fileID: 1413289615}
 --- !u!61 &262744814
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2368,7 +2368,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.289}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.226, y: -23}
+  m_AnchoredPosition: {x: 0.000026703, y: -39}
   m_SizeDelta: {x: 226.5529, y: 211.3666}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &782905159
@@ -4391,7 +4391,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1798782044
 RectTransform:
   m_ObjectHideFlags: 0
