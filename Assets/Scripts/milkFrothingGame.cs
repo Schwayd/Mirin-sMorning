@@ -23,6 +23,7 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     [SerializeField] private GameObject successImage; //image that is shown when you succeed
     [SerializeField] private Sprite SpoiledMilkSprite; //Sprite that is shown when you fail and spoil the milk
     [SerializeField] private Image milkImage; //Ui image component for milk
+    [SerializeField] private GameObject loseImage; //Image that is shown when you lose
 
     private bool gameEnded = false;
 
@@ -42,7 +43,20 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         //Resets the visual cue 
         milkVisualCue.color = Color.white;
 
-        StartCoroutine(EndGameAfterTime(8f));
+        //Starts the game timer method for the milk froth if the game isnt already over
+        StartCoroutine(GameTimer());
+    }
+
+    private IEnumerator GameTimer()
+    {
+        yield return new WaitForSeconds(8f);
+
+        if (!gameEnded)
+        {
+            StartCoroutine(EndGame(false)); //End normally if stil running
+
+        }
+
     }
 
     void Update()
@@ -101,6 +115,8 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     private void CheckMilkStatus()
     {
+        if (gameEnded) return; //prevents the game ending multiple times
+
         //Calculte the distance between the jug and the slider on the right
 
         float distance = Mathf.Abs(jug.anchoredPosition.y - targetSlider.GetComponent<RectTransform>().anchoredPosition.y);
@@ -110,6 +126,9 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
             //Player failed and milk has gone bad
             Debug.Log("Milk spoilt");
             milkVisualCue.color = Color.red; //Turn indicator red
+            milkImage.sprite = SpoiledMilkSprite; //Changes the sprite to the spoilt milk jug
+            loseImage.SetActive(true);
+            StartCoroutine(EndGame(true)); //It will end the game immediately on failure
         }
         else if(distance > warningThreshold)
         {
@@ -126,29 +145,28 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     }
 
-    private IEnumerator EndGameAfterTime(float time)
+    private IEnumerator EndGame(bool isFailure)
     {
-        yield return new WaitForSeconds(time);
+        gameEnded = true; // prevent multiple endings again
 
-        if (gameEnded) yield break; //prevents the game ending multiple time
+        
 
-        if (milkVisualCue.color == Color.red) //checks the variable to see if milk is spoiled based on its colour
+        if (isFailure) //checks to see if we failed the game and spoilt the milk
         {
             Debug.Log("Game Over: Milk is spoilt!");
-            milkImage.sprite = SpoiledMilkSprite; //changes the current sprite to the spoilt milk sprite
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             FrothGameUI.SetActive(false);
         }
         else
         {
             Debug.Log("Success! The milk has frothed well");
             successImage.SetActive(true); //Shows the success UI if you frothed it correctly
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(2f);
             FrothGameUI.SetActive(false);
 
         }
 
-        gameEnded = true;
+        Debug.Log("Game has ended");
 
     }
 
