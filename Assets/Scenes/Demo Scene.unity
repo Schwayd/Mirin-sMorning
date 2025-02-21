@@ -897,11 +897,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8742010610075524460, guid: ac01b37d498d70449b81aba9744aa285, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -213.36
+      value: 217.2
       objectReference: {fileID: 0}
     - target: {fileID: 8742010610075524460, guid: ac01b37d498d70449b81aba9744aa285, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 60.6
+      value: 391
       objectReference: {fileID: 0}
     - target: {fileID: 8742010610075524460, guid: ac01b37d498d70449b81aba9744aa285, type: 3}
       propertyPath: m_ConstrainProportionsScale

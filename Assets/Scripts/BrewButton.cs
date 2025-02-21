@@ -9,6 +9,7 @@ public class BrewButton : MonoBehaviour
     [SerializeField] private GameObject image1;
     [SerializeField] private GameObject image2;
     [SerializeField] private GameObject image3;
+    [SerializeField] private GameObject brewGame;
 
     private void Start()
     {
@@ -42,6 +43,7 @@ public class BrewButton : MonoBehaviour
         Debug.Log("Image 3 shown");
 
         yield return new WaitForSeconds(1.5f);
+        brewGame.SetActive(false);
         image1.SetActive(false);
         image2.SetActive(false);
         image3.SetActive(false);
