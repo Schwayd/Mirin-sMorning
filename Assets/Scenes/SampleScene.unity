@@ -2665,6 +2665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FrothGame
       objectReference: {fileID: 0}
+    - target: {fileID: 6280124376893903859, guid: a7ebf95f3cdd5f64a81712cc5d0cc603, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2775,9 +2779,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 712125371}
     m_Modifications:
+    - target: {fileID: 1541970267800133875, guid: ce1aa356eab7a5c488f82699d659a8b9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5450951400715458986, guid: ce1aa356eab7a5c488f82699d659a8b9, type: 3}
       propertyPath: m_Name
       value: TampGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450951400715458986, guid: ce1aa356eab7a5c488f82699d659a8b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5892909420534331765, guid: ce1aa356eab7a5c488f82699d659a8b9, type: 3}
       propertyPath: m_Pivot.x
@@ -2858,6 +2870,10 @@ PrefabInstance:
     - target: {fileID: 5892909420534331765, guid: ce1aa356eab7a5c488f82699d659a8b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081988165869240322, guid: ce1aa356eab7a5c488f82699d659a8b9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3066,6 +3082,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 712125371}
     m_Modifications:
+    - target: {fileID: 3085987394438713136, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 235.7181
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085987394438713136, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 105.971
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085987394438713136, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 228
+      objectReference: {fileID: 0}
+    - target: {fileID: 3085987394438713136, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000612647897771761, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -242
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000612647897771761, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -58.215
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229369456631695158, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4229369456631695158, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -42
+      objectReference: {fileID: 0}
     - target: {fileID: 4325791108962856131, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3149,6 +3197,14 @@ PrefabInstance:
     - target: {fileID: 5447061726648266748, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
       propertyPath: m_Name
       value: BrewGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447061726648266748, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7168257516673327335, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7869911149288769782, guid: a75c617e79069604fafbfb049b6b94c8, type: 3}
       propertyPath: canvas
