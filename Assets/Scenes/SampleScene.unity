@@ -2667,7 +2667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6280124376893903859, guid: a7ebf95f3cdd5f64a81712cc5d0cc603, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2888,6 +2888,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 712125371}
     m_Modifications:
+    - target: {fileID: 609155101704806146, guid: de8fbcc136888be49a75d5b6d2bc2676, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4211787831829275633, guid: de8fbcc136888be49a75d5b6d2bc2676, type: 3}
       propertyPath: m_Name
       value: GrinderGAME
@@ -2970,6 +2974,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5742474532824393499, guid: de8fbcc136888be49a75d5b6d2bc2676, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6788074527610497454, guid: de8fbcc136888be49a75d5b6d2bc2676, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
