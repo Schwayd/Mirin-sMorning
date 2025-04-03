@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -5}
-  m_SizeDelta: {x: 480, y: 60}
+  m_AnchoredPosition: {x: -0.00012589, y: 0.000023365}
+  m_SizeDelta: {x: 659.52, y: 93.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8538894486836169683
 CanvasRenderer:
@@ -114,8 +114,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 20}
-  m_SizeDelta: {x: 500, y: 100}
+  m_AnchoredPosition: {x: 40.068413, y: 21.1731}
+  m_SizeDelta: {x: 659.5197, y: 93.2597}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3709643999906384438
 CanvasRenderer:
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2420151554532477997}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -190,7 +190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1, y: -53}
+  m_AnchoredPosition: {x: 90.1, y: -159.3}
   m_SizeDelta: {x: 510, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1524782905390773638
@@ -442,8 +442,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -159, y: 50}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -238.1, y: 93.9}
+  m_SizeDelta: {x: 100.8355, y: 21.7619}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8319103126661454852
 CanvasRenderer:
@@ -768,6 +768,14 @@ PrefabInstance:
     - target: {fileID: 6341997963997850130, guid: 3ae05b1e82ee488438a23d1737b57e40, type: 3}
       propertyPath: m_Name
       value: dialogueBranchClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694923849376695492, guid: 3ae05b1e82ee488438a23d1737b57e40, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000015259
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694923849376695492, guid: 3ae05b1e82ee488438a23d1737b57e40, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15.7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
