@@ -13,6 +13,8 @@ public class LatteArtManager : MonoBehaviour
     private List<KeyCode> pressedKeys = new List<KeyCode>();
     private Dictionary<string, Sprite> latteArtPatterns = new Dictionary<string, Sprite>();
 
+    [SerializeField] public GameObject latteArtUI;
+
     void Start()
     {
         //Define the correct key combinations
@@ -43,6 +45,7 @@ public class LatteArtManager : MonoBehaviour
         {
             DetermineLatteArt();
             pressedKeys.Clear();
+            Invoke("ArtComplete", 2.0f);
         }
     }
 
@@ -88,4 +91,9 @@ public class LatteArtManager : MonoBehaviour
 
         }
     }
+    private void ArtComplete()
+    {
+        latteArtUI.SetActive(false);
+    }
+
 }

@@ -237,6 +237,7 @@ MonoBehaviour:
   tulipTexture: {fileID: 21300000, guid: 4625125dd9b882e4b8a104a3d186cf7a, type: 3}
   bearFaceTexture: {fileID: 21300000, guid: 6ff5b699b2f0d2e47af661dd78e8f210, type: 3}
   spiralTexture: {fileID: 21300000, guid: 871b05d9edde94c4aa23f01571a57d8b, type: 3}
+  latteArtUI: {fileID: 1740028836713215991}
 --- !u!1 &2403927957214637061
 GameObject:
   m_ObjectHideFlags: 0
