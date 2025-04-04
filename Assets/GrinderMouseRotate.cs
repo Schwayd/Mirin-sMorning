@@ -7,6 +7,8 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
     private RectTransform rectTransform;
     private Vector2 centerPoint;
 
+    [SerializeField] public GameObject successImage;
+
     //smoothing the handle
     [SerializeField] private float rotationSpeed = 5f;
     private Quaternion targetRotation;
@@ -45,6 +47,8 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
 
 		if (progressbar.value == 1)
 		{
+            
+            successImage.SetActive(true);
             Invoke("checkProgressComplete", 2.0f);
 
 		}
@@ -83,10 +87,10 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
         if (Mathf.Abs(rotationDelta) > 0.1f)
         {
             //Convert the rotation delta into progress and add to the totalRotations
-            totalRotations += Mathf.Abs(rotationDelta) / 360f;
+            totalRotations += rotationDelta / 360f;
 
             //Update the progress bar 
-            progressbar.value = Mathf.Clamp01(totalRotations / requiredRotations);
+            progressbar.value = Mathf.Clamp01(Mathf.Abs(totalRotations) / requiredRotations);
 
         }
 

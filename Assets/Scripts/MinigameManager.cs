@@ -6,6 +6,7 @@ public class MinigameManager : MonoBehaviour
 {
     public GameObject[] minigames; //Assigns all the UI minigames to an array in order
     private int currentMinigameIndex = 0;
+    public GameObject successImage;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class MinigameManager : MonoBehaviour
         if (currentMinigameIndex < minigames.Length)
         {
             minigames[currentMinigameIndex].SetActive(true);
+            Invoke("DeactivateSuccessImage", 2.0f);
         }
         else
         {
@@ -42,4 +44,9 @@ public class MinigameManager : MonoBehaviour
         }
     }
 
+
+    void DeactivateSuccessImage()
+    {
+        successImage.SetActive(false);
+    }
 }

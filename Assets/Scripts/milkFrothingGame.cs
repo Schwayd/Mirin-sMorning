@@ -159,6 +159,7 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         }
         else
         {
+            successImage.SetActive(false);
             Debug.Log("Success! The milk has frothed well");
             successImage.SetActive(true); //Shows the success UI if you frothed it correctly
             yield return new WaitForSeconds(2f);

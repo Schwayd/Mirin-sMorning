@@ -16,6 +16,8 @@ public class tampMechanic : MonoBehaviour, IDragHandler, IEndDragHandler
 
     [SerializeField] public GameObject tampingUI;
 
+    public GameObject successImage;
+
     private float targetCompression = 0f;
     private float currentCompression = 0f;
     private bool isComplete = false;
@@ -86,6 +88,7 @@ public class tampMechanic : MonoBehaviour, IDragHandler, IEndDragHandler
         //lock tamp at success
         targetCompression = Mathf.Clamp(targetCompression, successThreshold, 1.0f);
         currentCompression = targetCompression;
+        successImage.SetActive(true);
         Invoke("tampingComplete", 2.0f);
     }
 
