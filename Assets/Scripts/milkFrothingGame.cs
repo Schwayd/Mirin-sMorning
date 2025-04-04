@@ -27,13 +27,14 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     private bool gameEnded = false;
 
+    private bool gameStarted = false;
+
     private float jugStartY;
     private bool isDragging = false;
 
     void Start()
     {
-        //Start the slider movement
-        StartCoroutine(MoveSliderRandomly());
+       
 
         //Set's the initial jug position to the targetslider position
         Vector2 initialPosition = jug.anchoredPosition;
@@ -43,8 +44,7 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         //Resets the visual cue 
         milkVisualCue.color = Color.white;
 
-        //Starts the game timer method for the milk froth if the game isnt already over
-        StartCoroutine(GameTimer());
+      
     }
 
     private IEnumerator GameTimer()
@@ -67,6 +67,15 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     public void OnBeginDrag(PointerEventData eventData)
     {
         isDragging = true;
+
+        if (!gameStarted)
+        {
+            gameStarted = true;
+            StartCoroutine(MoveSliderRandomly());
+            StartCoroutine(GameTimer());
+        }
+        
+        
     }
 
     public void OnDrag(PointerEventData eventData)

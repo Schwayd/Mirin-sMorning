@@ -8,21 +8,23 @@ public class LatteArtManager : MonoBehaviour
     public Image[] keyIndicators; // UI elements for key presses
     public Image latteArtDisplay; // Image to display the final latte art
     public Sprite failedTexture; // Texture for failed latte art
-    public Sprite heartTexture, rosettaTexture, tulipTexture, bearFaceTexture, spiralTexture; //Latte art textures
+    public Sprite heartTexture, rosettaTexture, starTexture, bunnyTexture, catTexture; //Latte art textures
 
     private List<KeyCode> pressedKeys = new List<KeyCode>();
     private Dictionary<string, Sprite> latteArtPatterns = new Dictionary<string, Sprite>();
 
     [SerializeField] public GameObject latteArtUI;
 
+    public GameObject successImage;
+
     void Start()
     {
         //Define the correct key combinations
         latteArtPatterns.Add("ASD", heartTexture);
         latteArtPatterns.Add("WAS", rosettaTexture);
-        latteArtPatterns.Add("DWA", tulipTexture);
-        latteArtPatterns.Add("SDW", bearFaceTexture);
-        latteArtPatterns.Add("ADW", spiralTexture);
+        latteArtPatterns.Add("DWA", starTexture);
+        latteArtPatterns.Add("SDW", bunnyTexture);
+        latteArtPatterns.Add("ADW", catTexture);
         
     }
 
@@ -83,6 +85,7 @@ public class LatteArtManager : MonoBehaviour
         if (latteArtPatterns.ContainsKey(keyCombo))
         {
             latteArtDisplay.sprite = latteArtPatterns[keyCombo];
+            successImage.SetActive(true);
 
         }
         else
