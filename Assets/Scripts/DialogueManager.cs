@@ -32,9 +32,8 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
 
     // To check if we are currently showing the dialog ui interface
     public bool DialogueActive { get; set; }
-
-
-    private ArticyFlowPlayer flowPlayer; 
+    private ArticyFlowPlayer flowPlayer;
+    
     void Start()
     {
         //Triggers the flowplayer to traverse through the script
@@ -87,25 +86,28 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
             }
         }
 
-        TriggerCutscene(aObject);
+        // Casting to DialogueFragment
+        ArticyObject articyObj = aObject as ArticyObject;
+        if (articyObj != null)
+        {
+            string techName = articyObj.TechnicalName;
+            Debug.Log("Dialogue Technical name: " + techName);
+            TriggerCutsceneByID(techName);
 
+        }
+
+        
     }
 
-    void TriggerCutscene(IFlowObject aObject)
+    
+    void TriggerCutsceneByID(string id)
     {
-        string fragmentName = aObject.Name; //The unique name of the dialogue fragment
-
-        foreach(Cutscene cutscene in cutsceneImages)
+        foreach (Cutscene cutscene in cutsceneImages)
         {
-            if (cutscene.fragmentName == fragmentName)
-            {
-                cutscene.cutsceneObject.SetActive(true); //Activates the correct cutscene
-            }
-            else
-            {
-                cutscene.cutsceneObject.SetActive(false); //Hide the other cutscenes
-            }
+            cutscene.cutsceneObject.SetActive(cutscene.fragmentName == id);
         }
+
+
 
     }
 
