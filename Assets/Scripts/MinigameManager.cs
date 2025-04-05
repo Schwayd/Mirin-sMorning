@@ -7,6 +7,9 @@ public class MinigameManager : MonoBehaviour
     public GameObject[] minigames; //Assigns all the UI minigames to an array in order
     private int currentMinigameIndex = 0;
     public GameObject successImage;
+    public GameObject recipeBookUI;
+     
+    private bool isOpen;
 
     private void Start()
     {
@@ -27,6 +30,14 @@ public class MinigameManager : MonoBehaviour
             }
                 
         }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            isOpen = !isOpen;
+            recipeBookUI.SetActive(isOpen);
+
+        }
+
     }
 
     void StartNextMinigame()
