@@ -26,6 +26,8 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
     [SerializeField]
     GameObject closePrefab;
 
+    [Header("Cutscene Images")]
+    [SerializeField] List<Cutscene> cutsceneImages; //List of the cutscene images
     
 
     // To check if we are currently showing the dialog ui interface
@@ -49,8 +51,6 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
         dialogueWidget.SetActive(DialogueActive);
         //method sets the diaogue widget active and flow player object begins
         flowPlayer.StartOn = aObject;
-        
-        
         
     }
 
@@ -84,6 +84,26 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
             if (speakerEntity != null)
             {
                 dialogueSpeaker.text = speakerEntity.DisplayName;
+            }
+        }
+
+        TriggerCutscene(aObject);
+
+    }
+
+    void TriggerCutscene(IFlowObject aObject)
+    {
+        string fragmentName = aObject.Name; //The unique name of the dialogue fragment
+
+        foreach(Cutscene cutscene in cutsceneImages)
+        {
+            if (cutscene.fragmentName == fragmentName)
+            {
+                cutscene.cutsceneObject.SetActive(true); //Activates the correct cutscene
+            }
+            else
+            {
+                cutscene.cutsceneObject.SetActive(false); //Hide the other cutscenes
             }
         }
 
@@ -127,4 +147,11 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
         }
     }
 
+    [System.Serializable]
+    public class Cutscene
+    {
+        public string fragmentName; //Name of the dialogue fragment that triggers the cutscene
+        public GameObject cutsceneObject; //The cutscene object (image)
+
+    }
 }
