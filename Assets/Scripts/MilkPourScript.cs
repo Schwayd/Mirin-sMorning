@@ -26,7 +26,6 @@ public class MilkPourScript : MonoBehaviour
     {
         pourButton.onClick.AddListener(PourMilk);
         confirmButton.onClick.AddListener(ConfirmPours);
-        successScreen.SetActive(false);
         failScreen.SetActive(false);
     }
     
