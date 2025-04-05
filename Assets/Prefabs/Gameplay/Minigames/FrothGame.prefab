@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.99371064, g: 0.7530951, b: 0.9347724, a: 1}
+  m_Color: {r: 0.46226418, g: 0.28859115, b: 0.2551175, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -613,8 +613,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.6744, y: -83.9885}
-  m_SizeDelta: {x: 193.3546, y: 50}
+  m_AnchoredPosition: {x: -0, y: -84}
+  m_SizeDelta: {x: 211.8392, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6934926691681442302
 CanvasRenderer:
@@ -653,8 +653,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294901980
-  m_fontColor: {r: 0.8611374, g: 0, b: 1, a: 1}
+    rgba: 4278208178
+  m_fontColor: {r: 0.6981132, g: 0.2744002, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -677,7 +677,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -707,7 +707,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0.83444256, w: 0}
+  m_margin: {x: 0, y: 0, z: -0.23135376, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
