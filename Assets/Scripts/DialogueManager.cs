@@ -5,6 +5,8 @@ using Articy.Unity;
 using Articy.Unity.Interfaces;
 using Articy.UnityImporterTutorial;
 using System;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 
 public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
@@ -13,6 +15,9 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
     // Reference to Dialog UI
     [SerializeField]
     GameObject dialogueWidget;
+    //Reference to loadingUI
+    [SerializeField]
+    GameObject loadingScreen;
     // Reference to dialogue text
     [SerializeField]
     Text dialogueText;
@@ -28,7 +33,7 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
 
     [Header("Cutscene Images")]
     [SerializeField] List<Cutscene> cutsceneImages; //List of the cutscene images
-    
+
 
     // To check if we are currently showing the dialog ui interface
     public bool DialogueActive { get; set; }
@@ -53,14 +58,25 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
         
     }
 
+    public string nextSceneName;
     public void CloseDialogueBox()
     {
         //Hides the dialogue UI 
         DialogueActive = false;
         dialogueWidget.SetActive(DialogueActive);
+        loadingScreen.SetActive(true);
         
         flowPlayer.FinishCurrentPausedObject();
+
+        StartCoroutine(LoadNextSceneAfterDelay());
         
+    }
+
+    private IEnumerator LoadNextSceneAfterDelay()
+    {
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(nextSceneName);
+        loadingScreen.SetActive(false);
     }
 
     //These two methods below extracts information from the node it paused on and tell the flow player what to do next
@@ -156,4 +172,6 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
         public GameObject cutsceneObject; //The cutscene object (image)
 
     }
+
+    
 }
