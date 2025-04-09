@@ -1284,7 +1284,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1304671138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2162,7 +2162,7 @@ PrefabInstance:
     - target: {fileID: 501996331267759055, guid: 6040449da7a62f24ba7caa1c39bc4442, type: 3}
       propertyPath: loadingScreen
       value: 
-      objectReference: {fileID: 2062934720}
+      objectReference: {fileID: 1304671137}
     - target: {fileID: 501996331267759055, guid: 6040449da7a62f24ba7caa1c39bc4442, type: 3}
       propertyPath: nextSceneName
       value: CoffeeTutorial

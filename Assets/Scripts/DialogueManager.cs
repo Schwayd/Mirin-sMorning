@@ -76,6 +76,7 @@ public class DialogueManager : MonoBehaviour, IArticyFlowPlayerCallbacks
     {
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene(nextSceneName);
+        yield return new WaitForSeconds(1f);
         loadingScreen.SetActive(false);
     }
 
