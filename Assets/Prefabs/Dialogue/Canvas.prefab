@@ -66,12 +66,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 28
+    m_Font: {fileID: 12800000, guid: 09aaaf01844c13048a58d4c6dcea657b, type: 3}
+    m_FontSize: 25
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 100
+    m_MaxSize: 225
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -777,6 +777,18 @@ PrefabInstance:
     - target: {fileID: 6694923849376695492, guid: 3ae05b1e82ee488438a23d1737b57e40, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -15.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611285612329855119, guid: 3ae05b1e82ee488438a23d1737b57e40, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 09aaaf01844c13048a58d4c6dcea657b, type: 3}
+    - target: {fileID: 8611285612329855119, guid: 3ae05b1e82ee488438a23d1737b57e40, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8611285612329855119, guid: 3ae05b1e82ee488438a23d1737b57e40, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
