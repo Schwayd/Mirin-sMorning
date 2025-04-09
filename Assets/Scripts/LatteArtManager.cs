@@ -22,9 +22,9 @@ public class LatteArtManager : MonoBehaviour
         //Define the correct key combinations
         latteArtPatterns.Add("ASD", heartTexture);
         latteArtPatterns.Add("WAS", rosettaTexture);
-        latteArtPatterns.Add("DWA", starTexture);
+        latteArtPatterns.Add("DWA", catTexture);
         latteArtPatterns.Add("SDW", bunnyTexture);
-        latteArtPatterns.Add("ADW", catTexture);
+        latteArtPatterns.Add("ADW", starTexture);
         
     }
 
