@@ -20,6 +20,12 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
     [SerializeField] private Slider progressbar; //refers to the progressbar in the UI
     [SerializeField] private float requiredRotations = 3f; //max number of rotations needed until progress bar is full
 
+    //audiohandling
+    [SerializeField] private AudioSource grindingAudio;
+    [SerializeField] private float minRotationSpeedToPlay = 0.5f;
+
+    private float lastAngle = 0f;
+
 
     private float totalRotations = 0f;
     private float previousAngle;
@@ -44,6 +50,7 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
         rectTransform.rotation = Quaternion.Lerp(rectTransform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
 
         UpdateProgressBasedOnHandle();
+        HandleAudio();
 
 		if (progressbar.value == 1)
 		{
@@ -54,6 +61,27 @@ public class GrinderHandle : MonoBehaviour, IDragHandler
 		}
 	}
 
+    private void HandleAudio()
+    {
+        float currentAngle = GetHandleAngle();
+        float rotationSpeed = Mathf.Abs(Mathf.DeltaAngle(lastAngle, currentAngle)) / Time.deltaTime;
+
+        if (rotationSpeed > minRotationSpeedToPlay)
+        {
+            if(!grindingAudio.isPlaying)
+            {
+                grindingAudio.Play();
+            }
+        }
+        else
+        {
+            if (grindingAudio.isPlaying)
+            {
+                grindingAudio.Pause();
+            }
+        }
+        lastAngle = currentAngle;
+    }
     public void OnDrag(PointerEventData eventData)
     {
         // Calculate the direction vector from the center to the mouse position

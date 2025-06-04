@@ -8,6 +8,7 @@ public class pixiPotionLogo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1f;
         pixipotionlogo.SetActive(true);
         Invoke("exitlogosequence", 3.0f);
     }

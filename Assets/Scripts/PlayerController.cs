@@ -49,11 +49,7 @@ public class PlayerController : MonoBehaviour
             dialogueManager.StartDialogue(availableDialogue);
         }
 
-        // Key option to abort dialogue
-        if (dialogueManager.DialogueActive && Input.GetKeyDown(KeyCode.Escape))
-        {
-            dialogueManager.CloseDialogueBox();
-        }
+       
 
         // Key option to reset entire scene
         if (Input.GetKeyDown(KeyCode.R))

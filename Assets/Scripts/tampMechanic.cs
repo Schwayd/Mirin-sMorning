@@ -17,6 +17,7 @@ public class tampMechanic : MonoBehaviour, IDragHandler, IEndDragHandler
     [SerializeField] public GameObject tampingUI;
 
     public GameObject successImage;
+    public GameObject loseImage;
 
     private float targetCompression = 0f;
     private float currentCompression = 0f;
@@ -94,11 +95,12 @@ public class tampMechanic : MonoBehaviour, IDragHandler, IEndDragHandler
 
     private void OnTampingFailure()
     {
-        Debug.Log("Tamping failed! Restarting...");
-        RestartTamping();
+        Debug.Log("Tamping failed!");
+        loseImage.SetActive(true);
+        Invoke("tampingComplete", 2.0f);
     }
 
-    private void RestartTamping()
+    private void FailedTamping()
     {
         isComplete = false;
         currentCompression = 0f;
