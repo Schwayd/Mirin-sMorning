@@ -85,7 +85,7 @@ public class LatteArtManager : MonoBehaviour
         if (latteArtPatterns.ContainsKey(keyCombo))
         {
             latteArtDisplay.sprite = latteArtPatterns[keyCombo];
-            successImage.SetActive(true);
+           
 
         }
         else
