@@ -13,5 +13,10 @@ public class RestartScene : MonoBehaviour
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
+
+            if (Input.GetKeyDown(KeyCode.L))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
