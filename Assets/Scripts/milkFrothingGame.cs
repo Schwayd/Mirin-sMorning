@@ -25,6 +25,8 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     [SerializeField] private Image milkImage; //Ui image component for milk
     [SerializeField] private GameObject loseImage; //Image that is shown when you lose
 
+    [SerializeField] private AudioSource frothingSound; 
+
     private bool gameEnded = false;
 
     private bool gameStarted = false;
@@ -85,11 +87,22 @@ public class milkFrothingGame : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         newPosition.y += eventData.delta.y;
         jug.anchoredPosition = newPosition;
 
+        //Play frothing sound if not already playing
+        if (!frothingSound.isPlaying)
+        {
+            frothingSound.Play();
+        }
+
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         isDragging = false;
+
+        if (frothingSound.isPlaying)
+        {
+            frothingSound.Stop();
+        }
     }
 
     private IEnumerator MoveSliderRandomly()

@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -181.5833, y: -0.9034}
+  m_AnchoredPosition: {x: -181.6, y: 8.5}
   m_SizeDelta: {x: 298.0373, y: 62.0465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8989283273995687678
@@ -819,6 +819,7 @@ MonoBehaviour:
   SpoiledMilkSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   milkImage: {fileID: 8756879082118041738}
   loseImage: {fileID: 4369268180197702553}
+  frothingSound: {fileID: 0}
 --- !u!1 &7328901689284230762
 GameObject:
   m_ObjectHideFlags: 0
